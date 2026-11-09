@@ -187,18 +187,22 @@ class BugHoundAgent:
 
         return None
 
-    def _normalize_issues(self, arr: List[Any]) -> List[Dict[str, str]]:
+    def _normalize_issues(self, arr: List[Any]) -> Optional[List[Dict[str, str]]]:
         issues: List[Dict[str, str]] = []
+
         for item in arr:
             if not isinstance(item, dict):
-                continue
-            issues.append(
-                {
-                    "type": str(item.get("type", "Issue")),
-                    "severity": str(item.get("severity", "Unknown")),
-                    "msg": str(item.get("msg", "")).strip(),
-                }
-            )
+                return None
+
+            normalized: Dict[str, str] = {}
+            for key in ("type", "severity", "msg"):
+                value = item.get(key)
+                if not isinstance(value, str) or not value.strip():
+                    return None
+                normalized[key] = value.strip()
+
+            issues.append(normalized)
+
         return issues
 
     def _try_json_loads(self, s: str) -> Any:
