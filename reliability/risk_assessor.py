@@ -70,9 +70,9 @@ def assess_risk(
     # ----------------------------
     # Risk level
     # ----------------------------
-    if score >= 75:
+    if score >= 45:                 # 75
         level = "low"
-    elif score >= 40:
+    elif score >= 30:               # 40
         level = "medium"
     else:
         level = "high"
