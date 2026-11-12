@@ -1,5 +1,6 @@
 from bughound_agent import BugHoundAgent
 from llm_client import MockClient
+import pytest
 
 
 def test_workflow_runs_in_offline_mode_and_returns_shape():
@@ -47,3 +48,9 @@ def test_mock_client_forces_llm_fallback_to_heuristics_for_analysis():
     assert any(issue.get("type") == "Code Quality" for issue in result["issues"])
     # Ensure we logged the fallback path
     assert any("Falling back to heuristics" in entry.get("message", "") for entry in result["logs"])
+
+def test_workflow_rejects_empty_code():
+    agent = BugHoundAgent()
+
+    with pytest.raises(ValueError, match="empty"):
+        agent.run("   \n")
