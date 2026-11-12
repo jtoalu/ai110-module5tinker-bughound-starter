@@ -16,6 +16,23 @@ Fill this out after you run BugHound in **both** modes (Heuristic and Gemini).
 ## 2) How does it work?
 
 Describe the workflow in your own words (plan → analyze → act → test → reflect).  
+
+### Heuristics
+
+- Plan: Set up a quick scan and fix-proposal workflow.
+- Analyze: Try LLM analysis; when its output isn’t parseable, fall back to heuristics and identify an issue.
+- Act: Use the LLM fixer to propose a fix.
+- Test: Assess the proposed fix’s risk (high, medium, low) based on the risk score.
+- Reflect: Decide whether the fix isn’t safe to auto-apply and recommend human review.
+
+### Gemini
+
+- Plan: Prepare a quick scan and fix-proposal workflow.
+- Analyze: Gemini analyzes the code and identifies any issue.
+- Act: The fixer proposes a change for that issue.
+- Test: The proposed fix determines the risk score (high, medium, low).
+- Reflect: The app judges whether the fix safe enough to auto-apply under its current policy.
+
 Include what is done by heuristics vs what is done by Gemini (if enabled).
 
 ---
@@ -32,6 +49,12 @@ Include what is done by heuristics vs what is done by Gemini (if enabled).
 - What types of issues were detected?
 - What kinds of fixes were proposed?
 - What did the risk report show?
+
+### Testing 
+
+![Testing the app with various scenarios/workflows](images/Screenshot%202026-11-10%20195341.png "Testing Output")
+
+![Testing Code](images/Screenshot%202026-11-11%20192737.png "Conversation with Copilot")
 
 ---
 
