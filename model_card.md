@@ -50,6 +50,12 @@ Include what is done by heuristics vs what is done by Gemini (if enabled).
 - What kinds of fixes were proposed?
 - What did the risk report show?
 
+![Output of the app when  Gemini is enabled](images/Screenshot%202026-11-11%20203427.png "Detected Issues")
+
+![Output of the app when  Gemini is enabled](images/Screenshot%202026-11-11%20203533.png "Proposed Fix")
+
+![Output of the app when  Gemini is enabled](images/Screenshot%202026-11-11%20203639.png "Agent Trace")
+
 ### Testing 
 
 ![Testing the app with various scenarios/workflows](images/Screenshot%202026-11-10%20195341.png "Testing Output")
